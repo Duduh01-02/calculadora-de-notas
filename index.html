@@ -1,31 +1,38 @@
-function calcularMedia(){
-    const textoNota1 = document.getElementById("nota1").value;
-    const textoNota2 = document.getElementById("nota1").value;
-    const textoNota3 = document.getElementById("nota1").value;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <main>
+        <h1>Sorteador de números</h1>
+        <p>Informe os limitess inferior e superior do sorteio </p>
 
-    if (textoNota1 === "" || textoNota2 === "" || textoNota3 === ""){
-        alert("Preencha todas as notas!")
-          return;
-    }
+        <label for="limiteinferior">limite inferior:</label>
+        <input type="number" step="1" id="limiteinferior">
+        <br><br>
 
-    const nota1 = Number(textoNota1);
-    const nota2 = Number(textoNota2);
-    const nota3 = Number(textoNota3);
+        <label for="limitesuperior">limite superior:</label>
+        <input type="number" step="1" id="limitesuperior">
+        <br><br>
 
-    const media = (nota1+nota2+nota3) / 3;
+        <button onclick="sortearnumero()">Sortear um Número</button>
 
-    let situacao;
+        <p id="resultado">0 resultado aparecerá aqui!</p>
+        <script>
+            function sortearnumero() {
+                const textoinferior = document.getElementById("limiteinferior").value;
+                const textosuperior = document.getElementById("limitesuperior").value;
 
-    if(media >=7){
-        situacao = "APROVADO";
-    } else if(media >=5){
-        situacao = "RECUPERACAO";
-    } else{
-        situacao = "REPROVADO";
-    }
-    const mediaFormatada = media.toFixed(1);
+                const limiteinferior = Number(textoinferior);
+                const limitesuperior = Number(textosuperior);
 
-    document.getElementById("resultado").textContent = 
-                            "Media: "+ mediaFormatada+ " - Situação: "+ situacao;
-}
-
+                const numeroAleatorio = Math.random();
+            }
+        </script>
+    </main>
+</body>
+</html>
